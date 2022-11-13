@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.2](https://github.com/buluma/ansible-role-eclipse/tree/0.1.2) (2022-10-06)
+
+[Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/0.1.1...0.1.2)
+
 ## [0.1.1](https://github.com/buluma/ansible-role-eclipse/tree/0.1.1) (2022-05-13)
 
 [Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/0.1.0...0.1.1)
