@@ -8,7 +8,7 @@ molecule:
   stage: build
   allow_failure: true
   script:
-    - image=${image} tag=${tag} molecule test
+    - image=${image} tag=${tag} molecule --debug converge
   retry: 1
   parallel:
     matrix:
