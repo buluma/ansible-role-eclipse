@@ -1,10 +1,10 @@
-# [eclipse](#eclipse)
+# [Ansible role eclipse](#eclipse)
 
 Install eclipse and plugins on your system.
 
-|GitHub|GitLab|Quality|Downloads|Version|Issues|Pull Requests|
-|------|------|-------|---------|-------|------|-------------|
-|[![github](https://github.com/buluma/ansible-role-eclipse/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-eclipse/actions)|[![gitlab](https://gitlab.com/shadowwalker/ansible-role-eclipse/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-eclipse)|[![quality](https://img.shields.io/ansible/quality/58801)](https://galaxy.ansible.com/buluma/eclipse)|[![downloads](https://img.shields.io/ansible/role/d/58801)](https://galaxy.ansible.com/buluma/eclipse)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-eclipse.svg)](https://github.com/buluma/ansible-role-eclipse/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-eclipse.svg)](https://github.com/buluma/ansible-role-eclipse/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-eclipse.svg)](https://github.com/buluma/ansible-role-eclipse/pulls/)|
+|GitHub|GitLab|Downloads|Version|Issues|Pull Requests|
+|------|------|-------|-------|------|-------------|
+|[![github](https://github.com/buluma/ansible-role-eclipse/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-eclipse/actions)|[![gitlab](https://gitlab.com/shadowwalker/ansible-role-eclipse/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-eclipse)|[![downloads](https://img.shields.io/ansible/role/d/4694)](https://galaxy.ansible.com/buluma/eclipse)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-eclipse.svg)](https://github.com/buluma/ansible-role-eclipse/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-eclipse.svg)](https://github.com/buluma/ansible-role-eclipse/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-eclipse.svg)](https://github.com/buluma/ansible-role-eclipse/pulls/)|
 
 ## [Example Playbook](#example-playbook)
 
