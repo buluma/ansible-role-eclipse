@@ -12,20 +12,30 @@ This example is taken from [`molecule/default/converge.yml`](https://github.com/
 
 ```yaml
 ---
-- name: converge
+- name: Converge
   hosts: all
   become: yes
   gather_facts: yes
 
   roles:
     - role: buluma.eclipse
+    # - role: buluma.eclipse
+    #   eclipse_release: 2022-09
+    #   eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
+    #   eclipse_link_paths:
+    #     - /opt/eclipse-09
+    #     - /opt/eclipse-202209
+    # - role: buluma.eclipse
+    #   eclipse_release: 2022-12
+    #   eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
+    #   eclipse_link_paths: []
 ```
 
 The machine needs to be prepared. In CI this is done using [`molecule/default/prepare.yml`](https://github.com/buluma/ansible-role-eclipse/blob/master/molecule/default/prepare.yml):
 
 ```yaml
 ---
-- name: prepare
+- name: Prepare
   hosts: all
   become: yes
   gather_facts: no
@@ -48,7 +58,7 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 
 # The release to install.
 # See https://www.eclipse.org/downloads/packages/release
-eclipse_release: 2022-12
+eclipse_release: 2023-06
 
 # The release version to install, either: R, RC1, M3, M2 or M1.
 eclipse_release_version: R
@@ -56,21 +66,40 @@ eclipse_release_version: R
 # The type of installation, either: jee, committers, cpp, dsl, java, javascript, jee, modeling, parallel, php, rcp, rust, scout or testing.
 eclipse_release_type: java
 
-eclipse_install_path: /opt
+# Where to download eclipse to. The installation will later be moved to a versioned path.
+eclipse_tmp_path: /tmp
 
-eclipse_plugins:
-  # This plugin causes an issue:
-  # org.eclipse.m2e.logback.configuration:
-  # The org.eclipse.m2e.logback.configuration bundle was activated before
-  # the state location was initialized.  Will retry after the state location
-  # is initialized.
-  # - name: org.tigris.subversion.subclipse.feature.group
-  #   repository: "http://subclipse.tigris.org/update_1.10.x"
-  # Causes issues on CI
-  - name: org.sonatype.m2e.egit.feature.feature.group
-    repository: "https://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-egit/0.15.1/N/LATEST"
+# The path where to install eclipse.
+eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
 
-eclipse_plugins_state: no
+# The mirror to use for downloading eclipse.
+# The mirrors keep the 3 last versions.
+# eclipse_archive_mirror: "https://ftp.fau.de/eclipse/technology/epp/downloads/release"
+# eclipse_archive_mirror: "https://download.eclipse.org/technology/epp/downloads/release"
+eclipse_archive_mirror: "http://ftp.snt.utwente.nl/pub/software/eclipse/technology/epp/downloads/release"
+
+# What path(s) would you like to link to the eclipse installation?
+eclipse_link_paths:
+  - /opt/eclipse
+
+eclipse_plugins: []
+# This plugin causes an issue:
+# org.eclipse.m2e.logback.configuration:
+# The org.eclipse.m2e.logback.configuration bundle was activated before
+# the state location was initialized.  Will retry after the state location
+# is initialized.
+# - name: org.tigris.subversion.subclipse.feature.group
+#   repository: "http://subclipse.tigris.org/update_1.10.x"
+# - name: org.sonatype.m2e.egit.feature.feature.group
+#   repository: "https://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-egit/0.15.1/N/0.15.1.201806191431"
+
+# You can have this role install Lombok into Eclipse.
+eclipse_install_lombok: yes
+# Also specify the version of lombok.
+eclipse_lombok_version: "1.18.22"
+
+# You may install Maven.
+eclipse_install_maven: yes
 ```
 
 ## [Requirements](#requirements)
@@ -108,7 +137,7 @@ This role has been tested on these [container images](https://hub.docker.com/u/b
 |[opensuse](https://hub.docker.com/repository/docker/buluma/opensuse/general)|all|
 |[Ubuntu](https://hub.docker.com/repository/docker/buluma/ubuntu/general)|all|
 
-The minimum version of Ansible required is 2.10, tests have been done to:
+The minimum version of Ansible required is 2.12, tests have been done to:
 
 - The previous version.
 - The current version.
