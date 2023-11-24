@@ -35,6 +35,7 @@
     dest: "{{ eclipse_install_path }}/"
     remote_src: yes
     mode: "0755"
+  changed_when: "'molecule-notest' not in ansible_skip_tags"
 
 - name: Install plugins
   ansible.builtin.command:
@@ -98,6 +99,7 @@
         path: "{{ eclipse_install_path }}/eclipse.ini"
         line: "-javaagent:{{ eclipse_install_path }}/lombok.jar"
         mode: "0664"
+      changed_when: "'molecule-notest' not in ansible_skip_tags"
 
 - name: Install Maven
   ansible.builtin.package:
