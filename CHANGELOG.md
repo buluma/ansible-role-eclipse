@@ -1,5 +1,17 @@
 # Changelog
 
+## [Unreleased](https://github.com/buluma/ansible-role-eclipse/tree/HEAD)
+
+[Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/0.1.7...HEAD)
+
+**Closed issues:**
+
+- Update buluma/todo-to-issue-action@v1.0.1 @buluma [\#12](https://github.com/buluma/ansible-role-eclipse/issues/12)
+
+## [0.1.7](https://github.com/buluma/ansible-role-eclipse/tree/0.1.7) (2023-12-25)
+
+[Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/0.1.6...0.1.7)
+
 ## [0.1.6](https://github.com/buluma/ansible-role-eclipse/tree/0.1.6) (2023-12-09)
 
 [Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/0.1.5...0.1.6)
