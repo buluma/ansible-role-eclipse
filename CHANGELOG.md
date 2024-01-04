@@ -2,7 +2,22 @@
 
 ## [Unreleased](https://github.com/buluma/ansible-role-eclipse/tree/HEAD)
 
-[Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/0.1.7...HEAD)
+[Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/0.2.0...HEAD)
+
+**Closed issues:**
+
+- This task is not idempotent [\#14](https://github.com/buluma/ansible-role-eclipse/issues/14)
+- This task is not idempotent [\#13](https://github.com/buluma/ansible-role-eclipse/issues/13)
+- Update action [\#11](https://github.com/buluma/ansible-role-eclipse/issues/11)
+- rebuild action [\#10](https://github.com/buluma/ansible-role-eclipse/issues/10)
+
+**Merged pull requests:**
+
+- Bump buluma/gh-action-auto-merge-dependabot-updates from 1.0.5 to 1.0.8 [\#16](https://github.com/buluma/ansible-role-eclipse/pull/16) ([dependabot[bot]](https://github.com/apps/dependabot))
+
+## [0.2.0](https://github.com/buluma/ansible-role-eclipse/tree/0.2.0) (2024-01-02)
+
+[Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/0.1.7...0.2.0)
 
 **Closed issues:**
 
@@ -10,19 +25,19 @@
 
 ## [0.1.7](https://github.com/buluma/ansible-role-eclipse/tree/0.1.7) (2023-12-25)
 
-[Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/0.1.6...0.1.7)
-
-## [0.1.6](https://github.com/buluma/ansible-role-eclipse/tree/0.1.6) (2023-12-09)
-
-[Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/0.1.5...0.1.6)
-
-## [0.1.5](https://github.com/buluma/ansible-role-eclipse/tree/0.1.5) (2023-12-09)
-
-[Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/0.1.4...0.1.5)
+[Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/0.1.4...0.1.7)
 
 ## [0.1.4](https://github.com/buluma/ansible-role-eclipse/tree/0.1.4) (2023-12-09)
 
-[Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/0.1.3...0.1.4)
+[Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/0.1.5...0.1.4)
+
+## [0.1.5](https://github.com/buluma/ansible-role-eclipse/tree/0.1.5) (2023-12-09)
+
+[Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/0.1.6...0.1.5)
+
+## [0.1.6](https://github.com/buluma/ansible-role-eclipse/tree/0.1.6) (2023-12-09)
+
+[Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/0.1.3...0.1.6)
 
 **Closed issues:**
 
