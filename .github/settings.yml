@@ -5,4 +5,4 @@
 repository:
   description: Install eclipse and plugins on your system.
   homepage: https://buluma.github.io/
-  topics: eclipse, ansible, molecule, tox, playbook
+  topics: eclipse, development, ansible, molecule, tox, playbook

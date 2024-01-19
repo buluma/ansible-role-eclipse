@@ -51,6 +51,8 @@ jobs:
             tag: "latest"
           - image: "enterpriselinux"
             tag: "8"
+          - image: "enterpriselinux"
+            tag: "latest"
           - image: "debian-systemd"
             tag: "latest"
           - image: "debian-systemd"
@@ -75,7 +77,7 @@ jobs:
         with:
           path: "${{ github.repository }}"
       - name: Running Molecule Test
-        uses: buluma/molecule-action@v6.0.0
+        uses: buluma/molecule-action@v6.0.1
         with:
           image: ${{ matrix.config.image }}
           tag: ${{ matrix.config.tag }}
