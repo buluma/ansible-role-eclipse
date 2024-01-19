@@ -24,5 +24,19 @@ platforms:
     pre_build_image: yes
 provisioner:
   name: ansible
+scenario:
+  test_sequence:
+    - lint
+    - dependency
+    - cleanup
+    - destroy
+    - syntax
+    - create
+    - prepare
+    - converge
+    # - idempotence
+    - side_effect
+    - verify
+    - destroy
 verifier:
   name: ansible
