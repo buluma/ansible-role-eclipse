@@ -77,6 +77,8 @@
 - name: Install Lombok into Eclipse
   when:
     - eclipse_install_lombok
+  tags:
+    - molecule-idempotent-notest
   block:
     # TODO: This task is not idempotent
     - name: Download Lombok
@@ -99,8 +101,6 @@
         path: "{{ eclipse_install_path }}/eclipse.ini"
         line: "-javaagent:{{ eclipse_install_path }}/lombok.jar"
         mode: "0664"
-  tags:
-    - molecule-idempotent-notest
 
 - name: Install Maven
   ansible.builtin.package:
