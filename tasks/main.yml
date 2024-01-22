@@ -34,8 +34,7 @@
     dest: "{{ eclipse_install_path }}/"
     remote_src: yes
     mode: "0755"
-  tags:
-    - molecule-idempotent-notest
+  tags: molecule-idempotence-notest
 
 - name: Install plugins
   ansible.builtin.command:
@@ -77,8 +76,7 @@
 - name: Install Lombok into Eclipse
   when:
     - eclipse_install_lombok
-  tags:
-    - molecule-idempotent-notest
+  tags: molecule-idempotence-notest
   block:
     # TODO: This task is not idempotent
     - name: Download Lombok
