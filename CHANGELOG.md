@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/buluma/ansible-role-eclipse/tree/HEAD)
+
+[Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/0.5.0...HEAD)
+
+**Merged pull requests:**
+
+- Bump release-drafter/release-drafter from 5 to 6 [\#21](https://github.com/buluma/ansible-role-eclipse/pull/21) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [0.5.0](https://github.com/buluma/ansible-role-eclipse/tree/0.5.0) (2024-01-23)
 
 [Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/0.4.0...0.5.0)
