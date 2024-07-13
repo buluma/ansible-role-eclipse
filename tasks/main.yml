@@ -14,13 +14,30 @@
     state: directory
     mode: "0755"
 
+# - name: Unarchive eclipse to temporary directory
+#   ansible.builtin.unarchive:
+#     src: "{{ eclipse_archive }}"
+#     dest: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}"
+#     remote_src: true
+#     creates: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}/eclipse"
+#     mode: "0755"
+
+- name: Ensure UTF-8 encoding is used
+  ansible.builtin.shell: export LANG=en_US.UTF-8
+  args:
+    warn: false
+
 - name: Unarchive eclipse to temporary directory
   ansible.builtin.unarchive:
-    src: "{{ eclipse_archive }}"
+    src: "{{ eclipse_archive | urlencode }}"
     dest: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}"
     remote_src: true
     creates: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}/eclipse"
     mode: "0755"
+  environment:
+    LANG: en_US.UTF-8
+    LC_ALL: en_US.UTF-8
+
 
 - name: Create the installation directory
   ansible.builtin.file:
