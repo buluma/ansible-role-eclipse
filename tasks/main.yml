@@ -26,6 +26,7 @@
   ansible.builtin.shell: export LANG=en_US.UTF-8
   args:
     warn: false
+  changed_when: false
 
 - name: Unarchive eclipse to temporary directory
   ansible.builtin.unarchive:
