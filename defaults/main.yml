@@ -41,7 +41,7 @@ eclipse_plugins: []
 # You can have this role install Lombok into Eclipse.
 eclipse_install_lombok: true
 # Also specify the version of lombok.
-eclipse_lombok_version: "1.18.22"
+eclipse_lombok_version: "1.18.34"
 
 # You may install Maven.
 eclipse_install_maven: true
