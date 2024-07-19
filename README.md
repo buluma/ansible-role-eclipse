@@ -19,9 +19,8 @@ This example is taken from [`molecule/default/converge.yml`](https://github.com/
 
   roles:
     - role: buluma.eclipse
-    # - role: buluma.eclipse
-    #   eclipse_release: 2022-09
-    #   eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
+      eclipse_release: 2024‑06
+      eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
     #   eclipse_link_paths:
     #     - /opt/eclipse-09
     #     - /opt/eclipse-202209
@@ -58,7 +57,7 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 
 # The release to install.
 # See https://www.eclipse.org/downloads/packages/release
-eclipse_release: 2023-12
+eclipse_release: 2024-06
 
 # The release version to install, either: R, RC1, M3, M2 or M1.
 eclipse_release_version: R
@@ -96,7 +95,7 @@ eclipse_plugins: []
 # You can have this role install Lombok into Eclipse.
 eclipse_install_lombok: true
 # Also specify the version of lombok.
-eclipse_lombok_version: "1.18.22"
+eclipse_lombok_version: "1.18.34"
 
 # You may install Maven.
 eclipse_install_maven: true
