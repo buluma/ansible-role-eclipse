@@ -1,5 +1,4 @@
 ---
-
 - name: assert | Test eclipse_release
   ansible.builtin.assert:
     that:

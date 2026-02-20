@@ -23,7 +23,7 @@
 #     mode: "0755"
 
 - name: Ensure UTF-8 encoding is used
-  ansible.builtin.shell: export LANG=en_US.UTF-8
+  ansible.builtin.command: export LANG=en_US.UTF-8
   changed_when: false
 
 - name: Unarchive eclipse to temporary directory
@@ -36,7 +36,6 @@
   environment:
     LANG: en_US.UTF-8
     LC_ALL: en_US.UTF-8
-
 
 - name: Create the installation directory
   ansible.builtin.file:
