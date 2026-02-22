@@ -1,120 +1,92 @@
 ---
-# tasks file for eclipse
-
 - name: Import assert.yml
   ansible.builtin.import_tasks:
     file: assert.yml
-  run_once: true
   delegate_to: localhost
-
+  run_once: true
 - name: Create the temporary directory
   ansible.builtin.file:
+    mode: "0755"
     path: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}"
     recurse: true
     state: directory
-    mode: "0755"
-
-# - name: Unarchive eclipse to temporary directory
-#   ansible.builtin.unarchive:
-#     src: "{{ eclipse_archive }}"
-#     dest: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}"
-#     remote_src: true
-#     creates: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}/eclipse"
-#     mode: "0755"
-
 - name: Ensure UTF-8 encoding is used
   ansible.builtin.command: export LANG=en_US.UTF-8
   changed_when: false
-
 - name: Unarchive eclipse to temporary directory
   ansible.builtin.unarchive:
-    src: "{{ eclipse_archive | urlencode }}"
-    dest: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}"
-    remote_src: true
     creates: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}/eclipse"
+    dest: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}"
     mode: "0755"
+    remote_src: true
+    src: "{{ eclipse_archive | urlencode }}"
   environment:
     LANG: en_US.UTF-8
     LC_ALL: en_US.UTF-8
-
 - name: Create the installation directory
   ansible.builtin.file:
+    mode: "0755"
     path: "{{ eclipse_install_path }}"
     state: directory
-    mode: "0755"
-
 - name: Copy temporary installation files to the installation destination
   ansible.builtin.copy:
-    src: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}/eclipse/"
     dest: "{{ eclipse_install_path }}/"
-    remote_src: true
     mode: "0755"
+    remote_src: true
+    src: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}/eclipse/"
   tags: molecule-idempotence-notest
-
 - name: Install plugins
   ansible.builtin.command:
-    cmd: "{{ eclipse_plugin_install_command }} \"{{ item.name }}\""
+    cmd: '{{ eclipse_plugin_install_command }} "{{ item.name }}"'
     creates: "{{ eclipse_install_path }}/features/{{ item.name | regex_replace('.feature.group.*') }}*"
   loop: "{{ eclipse_plugins }}"
   loop_control:
     label: "{{ item.name }}"
-
 - name: Link eclipse to /usr/bin/eclipse-VERSION
   ansible.builtin.file:
-    src: "{{ eclipse_install_path }}/eclipse"
     dest: /usr/bin/eclipse-{{ eclipse_release }}
-    state: link
     mode: "0755"
-
+    src: "{{ eclipse_install_path }}/eclipse"
+    state: link
 - name: Link eclipse to /usr/bin/eclipse
   ansible.builtin.file:
-    src: "{{ eclipse_install_path }}/eclipse"
     dest: /usr/bin/eclipse
-    state: link
     mode: "0755"
-
+    src: "{{ eclipse_install_path }}/eclipse"
+    state: link
 - name: Link eclipse to requested paths
   ansible.builtin.file:
-    src: "{{ eclipse_install_path }}"
     dest: "{{ item }}"
+    src: "{{ eclipse_install_path }}"
     state: link
   loop: "{{ eclipse_link_paths }}"
   when:
     - eclipse_link_paths | length > 0
-
 - name: Create desktop icon for eclipse
   ansible.builtin.template:
-    src: eclipse.desktop.j2
     dest: /usr/share/applications/eclipse-{{ eclipse_release }}.desktop
     mode: "0755"
-
+    src: eclipse.desktop.j2
 - name: Install Lombok into Eclipse
+  tags: molecule-idempotence-notest
   when:
     - eclipse_install_lombok
-  tags: molecule-idempotence-notest
   block:
-    # TODO: This task is not idempotent
     - name: Download Lombok
       ansible.builtin.get_url:
-        url: https://projectlombok.org/downloads/lombok-{{ eclipse_lombok_version }}.jar
         dest: "{{ eclipse_install_path }}/lombok.jar"
         mode: "0664"
-
-    # TODO: This task is not idempotent
+        url: https://projectlombok.org/downloads/lombok-{{ eclipse_lombok_version }}.jar
     - name: Store Lombok version
       ansible.builtin.copy:
+        content: "{{ eclipse_lombok_version }}\n"
         dest: "{{ eclipse_install_path }}/lombok.jar.version"
-        content: |
-          {{ eclipse_lombok_version }}
         mode: "0664"
-
-    # TODO: This task is not idempotent
     - name: Configure Lombok in Eclipse ini file
       ansible.builtin.lineinfile:
-        path: "{{ eclipse_install_path }}/eclipse.ini"
-        line: "-javaagent:{{ eclipse_install_path }}/lombok.jar"
+        line: -javaagent:{{ eclipse_install_path }}/lombok.jar
         mode: "0664"
-
+        path: "{{ eclipse_install_path }}/eclipse.ini"
 - name: Install Maven
   ansible.builtin.package:
     name: maven

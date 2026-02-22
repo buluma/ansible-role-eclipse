@@ -11,38 +11,27 @@ Install eclipse and plugins on your system.
 This example is taken from [`molecule/default/converge.yml`](https://github.com/buluma/ansible-role-eclipse/blob/master/molecule/default/converge.yml) and is tested on each push, pull request and release.
 
 ```yaml
----
-- name: Converge
-  hosts: all
-  become: true
+- become: true
   gather_facts: true
-
+  hosts: all
+  name: Converge
   roles:
-    - role: buluma.eclipse
-      eclipse_release: 2024‑06
-      eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
-    #   eclipse_link_paths:
-    #     - /opt/eclipse-09
-    #     - /opt/eclipse-202209
-    # - role: buluma.eclipse
-    #   eclipse_release: 2022-12
-    #   eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
-    #   eclipse_link_paths: []
+  - eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
+    eclipse_release: 2024‑06
+    role: buluma.eclipse
 ```
 
 The machine needs to be prepared. In CI this is done using [`molecule/default/prepare.yml`](https://github.com/buluma/ansible-role-eclipse/blob/master/molecule/default/prepare.yml):
 
 ```yaml
----
-- name: Prepare
-  hosts: all
-  become: true
+- become: true
   gather_facts: false
-
+  hosts: all
+  name: Prepare
   roles:
-    - role: buluma.bootstrap
-    - role: buluma.core_dependencies
-    - role: buluma.java
+  - role: buluma.bootstrap
+  - role: buluma.core_dependencies
+  - role: buluma.java
 ```
 
 Also see a [full explanation and example](https://buluma.github.io/how-to-use-these-roles.html) on how to use these roles.
@@ -52,53 +41,18 @@ Also see a [full explanation and example](https://buluma.github.io/how-to-use-th
 The default values for the variables are set in [`defaults/main.yml`](https://github.com/buluma/ansible-role-eclipse/blob/master/defaults/main.yml):
 
 ```yaml
----
-# defaults file for eclipse
-
-# The release to install.
-# See https://www.eclipse.org/downloads/packages/release
-eclipse_release: 2024-06
-
-# The release version to install, either: R, RC1, M3, M2 or M1.
-eclipse_release_version: R
-
-# The type of installation, either: jee, committers, cpp, dsl, java, javascript, jee, modeling, parallel, php, rcp, rust, scout or testing.
-eclipse_release_type: java
-
-# Where to download eclipse to. The installation will later be moved to a versioned path.
-eclipse_tmp_path: /tmp
-
-# The path where to install eclipse.
-eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
-
-# The mirror to use for downloading eclipse.
-# The mirrors keep the 3 last versions.
-# eclipse_archive_mirror: "https://ftp.fau.de/eclipse/technology/epp/downloads/release"
-# eclipse_archive_mirror: "https://download.eclipse.org/technology/epp/downloads/release"
-eclipse_archive_mirror: "http://ftp.snt.utwente.nl/pub/software/eclipse/technology/epp/downloads/release"
-
-# What path(s) would you like to link to the eclipse installation?
-eclipse_link_paths:
-  - /opt/eclipse
-
-eclipse_plugins: []
-# This plugin causes an issue:
-# org.eclipse.m2e.logback.configuration:
-# The org.eclipse.m2e.logback.configuration bundle was activated before
-# the state location was initialized.  Will retry after the state location
-# is initialized.
-# - name: org.tigris.subversion.subclipse.feature.group
-#   repository: "http://subclipse.tigris.org/update_1.10.x"
-# - name: org.sonatype.m2e.egit.feature.feature.group
-#   repository: "https://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-egit/0.15.1/N/0.15.1.201806191431"
-
-# You can have this role install Lombok into Eclipse.
+eclipse_archive_mirror: http://ftp.snt.utwente.nl/pub/software/eclipse/technology/epp/downloads/release
 eclipse_install_lombok: true
-# Also specify the version of lombok.
-eclipse_lombok_version: "1.18.34"
-
-# You may install Maven.
 eclipse_install_maven: true
+eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
+eclipse_link_paths:
+- /opt/eclipse
+eclipse_lombok_version: 1.18.34
+eclipse_plugins: []
+eclipse_release: 2024-06
+eclipse_release_type: java
+eclipse_release_version: R
+eclipse_tmp_path: /tmp
 ```
 
 ## [Requirements](#requirements)

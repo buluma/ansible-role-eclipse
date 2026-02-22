@@ -1,17 +1,8 @@
----
-- name: Converge
-  hosts: all
-  become: true
+- become: true
   gather_facts: true
-
+  hosts: all
+  name: Converge
   roles:
-    - role: buluma.eclipse
-      eclipse_release: 2024‑06
-      eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
-    #   eclipse_link_paths:
-    #     - /opt/eclipse-09
-    #     - /opt/eclipse-202209
-    # - role: buluma.eclipse
-    #   eclipse_release: 2022-12
-    #   eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
-    #   eclipse_link_paths: []
+  - eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
+    eclipse_release: 2024‑06
+    role: buluma.eclipse
