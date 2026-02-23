@@ -11,27 +11,29 @@ Install eclipse and plugins on your system.
 This example is taken from [`molecule/default/converge.yml`](https://github.com/buluma/ansible-role-eclipse/blob/master/molecule/default/converge.yml) and is tested on each push, pull request and release.
 
 ```yaml
-- become: true
-  gather_facts: true
-  hosts: all
-  name: Converge
-  roles:
-  - eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
-    eclipse_release: 2024‑06
-    role: buluma.eclipse
+---
+  - become: true
+    gather_facts: true
+    hosts: all
+    name: Converge
+    roles:
+      - eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
+        eclipse_release: 2024‑06
+        role: buluma.eclipse
 ```
 
 The machine needs to be prepared. In CI this is done using [`molecule/default/prepare.yml`](https://github.com/buluma/ansible-role-eclipse/blob/master/molecule/default/prepare.yml):
 
 ```yaml
-- become: true
-  gather_facts: false
-  hosts: all
-  name: Prepare
-  roles:
-  - role: buluma.bootstrap
-  - role: buluma.core_dependencies
-  - role: buluma.java
+---
+  - become: true
+    gather_facts: false
+    hosts: all
+    name: Prepare
+    roles:
+      - role: buluma.bootstrap
+      - role: buluma.core_dependencies
+      - role: buluma.java
 ```
 
 Also see a [full explanation and example](https://buluma.github.io/how-to-use-these-roles.html) on how to use these roles.
@@ -41,12 +43,14 @@ Also see a [full explanation and example](https://buluma.github.io/how-to-use-th
 The default values for the variables are set in [`defaults/main.yml`](https://github.com/buluma/ansible-role-eclipse/blob/master/defaults/main.yml):
 
 ```yaml
-eclipse_archive_mirror: http://ftp.snt.utwente.nl/pub/software/eclipse/technology/epp/downloads/release
+---
+eclipse_archive_mirror: 
+  http://ftp.snt.utwente.nl/pub/software/eclipse/technology/epp/downloads/release
 eclipse_install_lombok: true
 eclipse_install_maven: true
 eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
 eclipse_link_paths:
-- /opt/eclipse
+  - /opt/eclipse
 eclipse_lombok_version: 1.18.34
 eclipse_plugins: []
 eclipse_release: 2024-06
