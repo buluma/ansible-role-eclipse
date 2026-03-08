@@ -44,13 +44,13 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 
 ```yaml
 ---
-eclipse_archive_mirror: http://ftp.snt.utwente.nl/pub/software/eclipse/technology/epp/downloads/release
+eclipse_archive_mirror: "http://ftp.snt.utwente.nl/pub/software/eclipse/technology/epp/downloads/release"
 eclipse_install_lombok: true
 eclipse_install_maven: true
 eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
 eclipse_link_paths:
   - /opt/eclipse
-eclipse_lombok_version: 1.18.34
+eclipse_lombok_version: "1.18.34"
 eclipse_plugins: []
 eclipse_release: 2024-06
 eclipse_release_type: java
@@ -90,7 +90,6 @@ This role has been tested on these [container images](https://hub.docker.com/u/r
 |[EL](https://hub.docker.com/r/robertdebock/enterpriselinux)|all|
 |[Debian](https://hub.docker.com/r/robertdebock/debian)|all|
 |[Fedora](https://hub.docker.com/r/robertdebock/fedora)|all|
-|[opensuse](https://hub.docker.com/r/robertdebock/opensuse)|all|
 |[Ubuntu](https://hub.docker.com/r/robertdebock/ubuntu)|all|
 
 The minimum version of Ansible required is 2.12, tests have been done on:
@@ -108,3 +107,4 @@ If you find issues, please register them on [GitHub](https://github.com/buluma/a
 ## [Author Information](#author-information)
 
 [buluma](https://buluma.github.io/)
+
