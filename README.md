@@ -44,7 +44,7 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 
 ```yaml
 ---
-eclipse_archive_mirror: 
+eclipse_archive_mirror:
   http://ftp.snt.utwente.nl/pub/software/eclipse/technology/epp/downloads/release
 eclipse_install_lombok: true
 eclipse_install_maven: true
@@ -108,4 +108,3 @@ If you find issues, please register them on [GitHub](https://github.com/buluma/a
 ## [Author Information](#author-information)
 
 [buluma](https://buluma.github.io/)
-
