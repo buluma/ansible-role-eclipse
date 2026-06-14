@@ -11,8 +11,10 @@
     recurse: true
     state: directory
 - name: Ensure UTF-8 encoding is used
-  ansible.builtin.command: export LANG=en_US.UTF-8
+  ansible.builtin.shell: export LANG=en_US.UTF-8
   changed_when: false
+  args:
+    executable: /bin/bash
 - name: Unarchive eclipse to temporary directory
   ansible.builtin.unarchive:
     creates: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}/eclipse"
