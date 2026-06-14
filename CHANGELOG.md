@@ -1,5 +1,16 @@
 # Changelog
 
+## [26.6.0](https://github.com/buluma/ansible-role-eclipse/tree/26.6.0) (2026-06-14)
+
+[Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/24.3.31...26.6.0)
+
+**Merged pull requests:**
+
+- Bump ansible/ansible-lint from 26.2.0 to 26.3.0 [\#32](https://github.com/buluma/ansible-role-eclipse/pull/32) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible/ansible-lint from 26.1.1 to 26.2.0 [\#30](https://github.com/buluma/ansible-role-eclipse/pull/30) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump actions/checkout from 4 to 6 [\#29](https://github.com/buluma/ansible-role-eclipse/pull/29) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible/ansible-lint from 24.7.0 to 24.10.0 [\#28](https://github.com/buluma/ansible-role-eclipse/pull/28) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [24.3.31](https://github.com/buluma/ansible-role-eclipse/tree/24.3.31) (2024-03-29)
 
 [Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/0.5.0...24.3.31)
@@ -28,8 +39,6 @@
 
 **Closed issues:**
 
-- This task is not idempotent [\#14](https://github.com/buluma/ansible-role-eclipse/issues/14)
-- This task is not idempotent [\#13](https://github.com/buluma/ansible-role-eclipse/issues/13)
 - Update action [\#11](https://github.com/buluma/ansible-role-eclipse/issues/11)
 - rebuild action [\#10](https://github.com/buluma/ansible-role-eclipse/issues/10)
 
