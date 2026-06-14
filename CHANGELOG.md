@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/buluma/ansible-role-eclipse/tree/HEAD)
+
+[Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/26.6.0...HEAD)
+
+**Closed issues:**
+
+- This task is not idempotent [\#15](https://github.com/buluma/ansible-role-eclipse/issues/15)
+
 ## [26.6.0](https://github.com/buluma/ansible-role-eclipse/tree/26.6.0) (2026-06-14)
 
 [Full Changelog](https://github.com/buluma/ansible-role-eclipse/compare/24.3.31...26.6.0)
